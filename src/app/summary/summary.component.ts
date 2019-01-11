@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { mockData } from '../../mock';
 import { SharedService } from '../../share.service';
 
 @Component({
@@ -9,24 +8,23 @@ import { SharedService } from '../../share.service';
 })
 export class SummaryComponent implements OnInit {
 
-
-  allData = mockData
-
-  summary={devices:[2,4,5],protocols:[2,4],time:3}
-  summaryData;
   constructor(public share:SharedService) {
-
-    this.summaryData=share.getDevices()
-    for (let key in this.summary) {
-
-
-    }
-      
- 
 
    }
 
   ngOnInit() {
   }
+  isDevicesChosen() {
+    if (this.share.getDevices()){
+      let groupTemp = this.share.getDevices()
+      for (let i = 0; i < groupTemp.length;i++){
+        if (groupTemp[i].length) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
 
 }

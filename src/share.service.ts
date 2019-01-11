@@ -6,11 +6,11 @@ import { PeriodTime } from './interfaces/period-time.interface';
 @Injectable()
 
 export class SharedService {
-    devices: Device[];
+    devices: any;
     protocols: Protocol[];
     periodTime: PeriodTime;
 
-    setDevices(devices: Device[]) {
+    setDevices(devices: any) {
         this.devices=devices;
     }
 

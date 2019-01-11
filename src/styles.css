@@ -31,3 +31,13 @@ li {
   list-style: none;
   padding: 0px;
 }
+
+.bg-color {
+  background: rgb(24, 67, 105);
+}
+
+
+.group-text-color {
+  color: rgb(255, 242, 216);
+  
+}

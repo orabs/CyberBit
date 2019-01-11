@@ -4,7 +4,7 @@
 }
 
 .time-padding {
-      margin-right:9%;
+     
            display: inline;
            white-space: nowrap;
 
@@ -12,6 +12,10 @@
 .protocols {
 
  border:1px solid gray;
+}
+.buttons {
+     border:1px solid gray;
+
 }
 
 .devices {
@@ -23,12 +27,41 @@
 
     color:rgb(148,165,197);
     font-weight: bold;
-    padding-left: 5%;
-      display: inline;
-      white-space: nowrap;
+    font-size: 20px;
+
 }
 
 li {
-      margin-left:5%;
+      margin-left:7%;
 
+}
+
+p{
+        padding-left: 5%;
+        display: inline;
+        white-space: nowrap;
+}
+
+.clear-button{
+    background:none;
+    border:none;
+}
+.start-button {
+  border: none;
+          display: inline;
+          white-space: nowrap;
+          width: 50%;
+       
+}
+
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 2px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }

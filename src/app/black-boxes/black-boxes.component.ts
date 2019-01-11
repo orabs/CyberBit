@@ -18,7 +18,7 @@ export class BlackBoxesComponent implements OnInit {
    isCollapsed = [false,false,false];
 
   allGroups = mockData.device_groups;
-  checkedReultsList=[]
+  checkedReultsList=[[],[],[]]
 
   constructor(public share: SharedService) { }
 
@@ -46,24 +46,29 @@ export class BlackBoxesComponent implements OnInit {
   groupCheckboxToggle(event:any,index:number) {
     if (event.target.checked){
      this.isCollapsed[index]=true
-      this.checkedReultsList = this.allGroups[index].devices
+      this.checkedReultsList[index] = this.allGroups[index].devices
       this.share.setDevices(this.checkedReultsList)
      console.log(this.checkedReultsList)
     }else {
-      this.checkedReultsList=[]
+      this.checkedReultsList[index]=[]
       this.share.setDevices(this.checkedReultsList)
       console.log(this.checkedReultsList)
     } ;
   }
 
-  checkBoxUpdateReults(event, device) {
+  checkBoxUpdateReults(event, device,groupIndex) {
     if (event.target.checked) {
-      this.checkedReultsList.push(device)
+      console.log(groupIndex)
+      this.checkedReultsList[groupIndex].push(device)
       this.share.setDevices(this.checkedReultsList)
+      console.log(this.checkedReultsList)
+
      } else {
-      let index =this.checkedReultsList.findIndex(v => v.id === device.id);
-      this.checkedReultsList.splice(index,1)
+      let index = this.checkedReultsList[groupIndex].findIndex(v => v.id === device.id);
+      this.checkedReultsList[groupIndex].splice(index,1)
       this.share.setDevices(this.checkedReultsList)
+      console.log(this.checkedReultsList)
+
    
 
      }

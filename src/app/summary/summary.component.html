@@ -1,21 +1,34 @@
 <div class="primary-text-color mt-2 ml-1">
-
   <p class="p-title">Summary</p>
-<div class="devices">
-<p class="summary-num">1</p>
-  <ul>
-<li #devices *ngFor="let device of share.getDevices()">{{device.name}}</li>
-  </ul>
-</div>
-<div class="protocols">
-<p class="summary-num">2</p>
-<ul *ngIf="share.getProtocols()?.length">
-  <li  #protocols *ngFor="let protocol of share.getProtocols()">{{protocol.name}}</li>
-</ul>
-<p class="summary-num" *ngIf="!share.getProtocols()?.length">Select Protocols</p>
-</div>
-<div class="time">
-<p class="summary-num">3</p>
-<div class="time-padding" #time>{{share.getTimePeriod()?.name}}</div>
-</div>
+  <div class="devices">
+    <p class="summary-num">1</p>
+    <ul *ngIf="isDevicesChosen()">
+      <div *ngFor="let group of share.getDevices()">
+        <li *ngFor="let device of group" #devices>{{device.name}}</li><br>
+
+      </div>
+    </ul>
+    <p class="summary-num" *ngIf="!isDevicesChosen()">Select Devices</p>
+  </div>
+  <div class="protocols">
+    <p class="summary-num">2</p>
+    <ul *ngIf="share.getProtocols()?.length">
+      <li #protocols *ngFor="let protocol of share.getProtocols()">{{protocol.name}}</li>
+    </ul>
+    <p class="summary-num" *ngIf="!share.getProtocols()?.length">Select Protocols</p>
+  </div>
+  <div class="time">
+    <p class="summary-num">3</p>
+    <div class="time-padding" #time>
+      <p *ngIf="share.getTimePeriod()">{{share.getTimePeriod()?.name}}</p>
+      <p class="summary-num" *ngIf="!share.getTimePeriod()">Select Period time</p>
+    </div>
+  </div>
+<div class="buttons py-2">
+<button class="primary-text-color clear-button mt-2">Clear</button> <button class="start-button ml-2 mt-2 bg-color group-text-color"><i
+class="right"></i>
+<p>Start Learning</p>
+  </button>
+
+  </div>
 </div>

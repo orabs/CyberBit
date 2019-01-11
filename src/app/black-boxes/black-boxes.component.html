@@ -17,7 +17,7 @@
       <ul *ngFor="let device of group.devices;let j=index" id="group.id" [ngbCollapse]="!isCollapsed[i]">
         <div class="checkbox mb-1">
           <label class="primary-text-color sub-list">
-<input type="checkbox" (change)="checkBoxUpdateReults($event,device)" [checked]="getStatus(groups_checkboxes)" name="devices" [value]="device.id">
+<input type="checkbox" (change)="checkBoxUpdateReults($event,device,i)" [checked]="getStatus(groups_checkboxes)" name="devices" [value]="device.id">
             {{device.name}}
 
           </label></div>
