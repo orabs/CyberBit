@@ -1,0 +1,15 @@
+
+<div class="primary-text-color mt-2 ml-1">
+  <p class="p-title font-weight-bold">2 </p>
+  <p class="p-title">Select Protocols</p>
+</div>
+<ul class="protocols-bg">
+<li class="ml-4 " *ngFor="let protocol of protocols">
+<div class="checkbox mb-1 div-wrap-checkbox">
+<label class="primary-text-color sub-list">
+<input (change)="checkBoxUpdateReults($event,protocol)" class="checkbox-style" type="checkbox" name="protocols" [value]="protocol.id">
+{{protocol.name}}
+
+  </label></div>
+</li>
+</ul>

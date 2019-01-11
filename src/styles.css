@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.p-title {
+
+  display: inline;
+  white-space: nowrap;
+}
+
+.groups-list {
+  border: 2px rgb(209, 218, 236) solid;
+}
+
+.checkbox-div {
+  position: relative;
+  width: 100% !important;
+}
+
+.primary-text-color {
+  color: rgb(51, 122, 183);
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  padding: 0px;
+}

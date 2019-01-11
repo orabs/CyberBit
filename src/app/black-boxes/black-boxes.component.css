@@ -1,0 +1,59 @@
+
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-right: 3%;
+  margin-left: 3%;
+
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-right: 3%;
+  margin-left: 3%;
+}
+
+label {
+  width: 100%;
+}
+
+
+i {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+
+}
+
+.boxes-bg-color {
+  background: rgb(24, 67, 105);
+}
+.sub-list{
+  padding-left:14% !important;
+}
+
+
+
+.group-text-color {
+  color: rgb(255, 242, 216);
+  
+}
+
+.btn-icon {
+  /* opacity: 0.5 !important; */
+  background: #194168;
+  border: none;
+}
+
+.groups-list {
+  border: 2px rgb(209, 218, 236) solid;
+}
+
+.checkbox-div {
+  position: relative;
+  width: 100% !important;
+}
+

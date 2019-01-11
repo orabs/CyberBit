@@ -1,0 +1,14 @@
+<div class="primary-text-color mt-2 ml-1">
+  <p class="p-title font-weight-bold">3 </p>
+  <p class="p-title">Select Time period</p>
+</div>
+<ul class="protocols-bg">
+  <li class="ml-4 " *ngFor="let time of times">
+    <div class="radio-group mb-1">
+      <label class="primary-text-color sub-list">
+<input (change)="updateRadioResults(time)" type="radio" name="times" [value]=time.id>
+        {{time.name}}
+
+      </label></div>
+  </li>
+</ul>

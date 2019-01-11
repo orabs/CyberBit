@@ -1,0 +1,13 @@
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.primary-text-color {
+  /* color: #194168; */
+  color: rgb(112, 156, 194);
+}
+
+.protocols-bg {
+    background: rgb(216, 232, 246);
+}

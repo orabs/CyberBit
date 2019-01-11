@@ -1,0 +1,21 @@
+<div class="primary-text-color mt-2 ml-1">
+
+  <p class="p-title">Summary</p>
+<div class="devices">
+<p class="summary-num">1</p>
+  <ul>
+<li #devices *ngFor="let device of share.getDevices()">{{device.name}}</li>
+  </ul>
+</div>
+<div class="protocols">
+<p class="summary-num">2</p>
+<ul *ngIf="share.getProtocols()?.length">
+  <li  #protocols *ngFor="let protocol of share.getProtocols()">{{protocol.name}}</li>
+</ul>
+<p class="summary-num" *ngIf="!share.getProtocols()?.length">Select Protocols</p>
+</div>
+<div class="time">
+<p class="summary-num">3</p>
+<div class="time-padding" #time>{{share.getTimePeriod()?.name}}</div>
+</div>
+</div>

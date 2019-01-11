@@ -1,0 +1,27 @@
+<div class="primary-text-color mt-2 ml-1">
+  <p class="p-title font-weight-bold">1 </p>
+  <p class="p-title">Select Blackboxes</p>
+</div>
+<li class="groups-list">
+  <ul *ngFor="let group of allGroups;let i=index">
+    <div class="checkbox-div checkbox mb-1 boxes-bg-color ">
+      <label class="group-text-color">
+        <button class="btn-icon" (click)='groupToggle(i)'>
+          <i [ngClass]="isCollapsed[i] ? 'up arrow' : 'down arrow'">
+          </i></button>
+
+        <input type="checkbox" [checked]="isAllChildrenChecked(groups_checkboxes)" #groups_checkboxes (change)="groupCheckboxToggle($event,i);updateGroupResults($event,i)"
+          name="groups" [value]="group.id"> {{group.name}}</label></div>
+
+    <li>
+      <ul *ngFor="let device of group.devices;let j=index" id="group.id" [ngbCollapse]="!isCollapsed[i]">
+        <div class="checkbox mb-1">
+          <label class="primary-text-color sub-list">
+<input type="checkbox" (change)="checkBoxUpdateReults($event,device)" [checked]="getStatus(groups_checkboxes)" name="devices" [value]="device.id">
+            {{device.name}}
+
+          </label></div>
+      </ul>
+    </li>
+  </ul>
+</li>

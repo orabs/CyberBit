@@ -1,0 +1,34 @@
+.time {
+
+    border:1px solid gray;
+}
+
+.time-padding {
+      margin-right:9%;
+           display: inline;
+           white-space: nowrap;
+
+}
+.protocols {
+
+ border:1px solid gray;
+}
+
+.devices {
+ border:1px solid gray;
+ 
+}
+
+.summary-num {
+
+    color:rgb(148,165,197);
+    font-weight: bold;
+    padding-left: 5%;
+      display: inline;
+      white-space: nowrap;
+}
+
+li {
+      margin-left:5%;
+
+}
