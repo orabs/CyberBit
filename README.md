@@ -6,14 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # The Answer to the question in question Fullstack Question.docx
 
-'''
+```javascript
 function checkFormat(input) {
     var template=new RegExp("^(-?(?:[1-9][0-9]*)?[0-9]{4})-([1-9]||1[0-2]||0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?$");
     return template.test(input)
 }
 
-
-'''
+```
 
 ## Development server
 
