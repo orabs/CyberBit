@@ -12,6 +12,7 @@ function checkFormat(input) {
     return template.test(input)
 }
 
+
 '''
 
 ## Development server
