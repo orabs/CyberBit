@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 
-# The Answer to the question in question Fullstack Question.docx
+# The Answer to the question in question Fullstack Question.docx  (Attached js file with the code)
 
 ```javascript
 function checkFormat(input) {
