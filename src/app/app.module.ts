@@ -9,17 +9,35 @@ import { SummaryComponent } from './summary/summary.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedService } from '../share.service';
+import { HttpClientModule } from '@angular/common/http';
+import {Routes, RouterModule} from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// const appRoutes:Routes=[
+//   {path:'',component:AppComponent},
+//   {path:':devices:protocols',component:AppComponent},
+//   {path:':devices/:protocols/:times',component:AppComponent},
+
+
+// ]
 @NgModule({
   declarations: [
     AppComponent,
     BlackBoxesComponent,
     ProtocolsComponent,
     TimePeriodComponent,
-    SummaryComponent
+    SummaryComponent,
+    
   ],
   imports: [
     NgbModule,
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+    // RouterModule.forRoot(appRoutes)
+    
+    
  
  
   ],

@@ -6,9 +6,10 @@
   <li class="ml-4 " *ngFor="let time of times">
     <div class="radio-group mb-1">
       <label class="primary-text-color sub-list">
-<input (change)="updateRadioResults(time)" type="radio" name="times" [value]=time.id>
+<input (change)="updateRadioResults(time)" [checked]="share.getTimePeriod().name===time.name" type="radio" name="times" [value]=time.id>
         {{time.name}}
 
       </label></div>
   </li>
+
 </ul>

@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChildren, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { mockData } from '../../mock';
 import { SharedService } from '../../share.service';
+import { Device } from '../../interfaces/device.interface';
+import { BlackBox } from '../../interfaces/blackbox.interface';
 
 @Component({
   selector: 'app-black-boxes',
@@ -9,74 +11,56 @@ import { SharedService } from '../../share.service';
 })
 
 
-export class BlackBoxesComponent implements OnInit {
+export class BlackBoxesComponent {
 
 
-  checkBoxes_elements=[];
+  checkBoxes_elements = [];
 
   // isCollapsed status for each group
-   isCollapsed = [false,false,false];
+  isCollapsed = [false, false, false];
 
-  allGroups = mockData.device_groups;
-  checkedReultsList=[[],[],[]]
+  allGroups: BlackBox[] = mockData.device_groups;
+  checkedReultsList: Array < Array < Device >> = [
+    [],
+    [],
+    []
+  ]
 
-  constructor(public share: SharedService) { }
+  constructor(public share: SharedService) {}
 
-
-  ngOnInit() {
-
-
-  }
-  // return group checkbox status
-  getStatus(groups:any) {
-    return groups.checked
-  }
 
   // open\close the group by click on arrow
-  groupToggle(index:number) {
+  groupToggle(index: number) {
     this.isCollapsed[index] = !this.isCollapsed[index]
   }
 
-  isAllChildrenChecked(groups){
-
-    // console.log(groups.ViewChildren())
-
+  // validator if all the children in group are checked
+  areAllChildrenChecked(index: number) {
+    let allDevices: Array < BlackBox > = this.share.getDevices()
+    let checkedDevices = this.share.getCheckedDevices()
+    if (allDevices[index].devices.length == checkedDevices[index].length) {
+      return true
+    }
+    return false
   }
 
-  groupCheckboxToggle(event:any,index:number) {
-    if (event.target.checked){
-     this.isCollapsed[index]=true
-      this.checkedReultsList[index] = this.allGroups[index].devices
-      this.share.setDevices(this.checkedReultsList)
-     console.log(this.checkedReultsList)
-    }else {
-      this.checkedReultsList[index]=[]
-      this.share.setDevices(this.checkedReultsList)
-      console.log(this.checkedReultsList)
-    } ;
-  }
-
-  checkBoxUpdateReults(event, device,groupIndex) {
+  // Check/Uncheck certain device Event handler
+  checkBoxUpdateReults(event: any, device: Device, index: number) {
     if (event.target.checked) {
-      console.log(groupIndex)
-      this.checkedReultsList[groupIndex].push(device)
-      this.share.setDevices(this.checkedReultsList)
-      console.log(this.checkedReultsList)
+      this.share.checkDevices(device, index)
 
-     } else {
-      let index = this.checkedReultsList[groupIndex].findIndex(v => v.id === device.id);
-      this.checkedReultsList[groupIndex].splice(index,1)
-      this.share.setDevices(this.checkedReultsList)
-      console.log(this.checkedReultsList)
-
-   
-
-     }
-
+    } else {
+      this.share.uncheckDevices(device, index)
+    }
   }
 
-  updateGroupResults(event,index){
-    event.target.checked
+  // Check/Uncheck certain group Event handler
+  updateGroupResults(event: any, index: number) {
+    if (event.target.checked) {
+      this.share.checkAllGroup(index)
+    } else {
+      this.share.uncheckAllGroup(index)
+    }
 
   }
 }

@@ -1,57 +1,60 @@
 .time {
 
-    border:1px solid gray;
+  border: 1px solid gray;
 }
 
 .time-padding {
-     
-           display: inline;
-           white-space: nowrap;
+
+  display: inline;
+  white-space: nowrap;
 
 }
+
 .protocols {
 
- border:1px solid gray;
+  border: 1px solid gray;
 }
+
 .buttons {
-     border:1px solid gray;
+  border: 1px solid gray;
 
 }
 
 .devices {
- border:1px solid gray;
- 
+  border: 1px solid gray;
+
 }
 
 .summary-num {
 
-    color:rgb(148,165,197);
-    font-weight: bold;
-    font-size: 20px;
+  color: rgb(148, 165, 197);
+  font-weight: bold;
+  font-size: 20px;
 
 }
 
 li {
-      margin-left:7%;
+  margin-left: 7%;
 
 }
 
-p{
-        padding-left: 5%;
-        display: inline;
-        white-space: nowrap;
+p {
+  padding-left: 5%;
+  display: inline;
+  white-space: nowrap;
 }
 
-.clear-button{
-    background:none;
-    border:none;
+.clear-button {
+  background: none;
+  border: none;
 }
+
 .start-button {
   border: none;
-          display: inline;
-          white-space: nowrap;
-          width: 50%;
-       
+  display: inline;
+  white-space: nowrap;
+  width: 80%;
+  background: rgb(24, 67, 105)
 }
 
 i {

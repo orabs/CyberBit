@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { mockData } from '../../mock';
-import { SharedService } from '../../share.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  mockData
+} from '../../mock';
+import {
+  SharedService
+} from '../../share.service';
 
 @Component({
   selector: 'app-time-period',
@@ -9,15 +16,12 @@ import { SharedService } from '../../share.service';
 })
 export class TimePeriodComponent implements OnInit {
   times = mockData.times;
-  constructor(public share:SharedService) { }
+  constructor(public share: SharedService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  updateRadioResults(time){
-
+  updateRadioResults(time) {
     this.share.setTimePeriod(time);
-    console.log(time)
   }
 
 }

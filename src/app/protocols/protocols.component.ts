@@ -1,33 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { mockData } from '../../mock';
-import { Protocol } from '../../interfaces/protocols.interface';
-import { SharedService } from '../../share.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  mockData
+} from '../../mock';
+import {
+  Protocol
+} from '../../interfaces/protocols.interface';
+import {
+  SharedService
+} from '../../share.service';
 
 @Component({
   selector: 'app-protocols',
   templateUrl: './protocols.component.html',
   styleUrls: ['./protocols.component.css']
 })
-export class ProtocolsComponent implements OnInit {
+export class ProtocolsComponent {
   protocols = mockData.protocols;
-  checkedReultsList=[]
-  constructor(public share:SharedService) { }
-
-  ngOnInit() {
-  }
+  
+  constructor(public share: SharedService) {}
 
 
   checkBoxUpdateReults(event, device) {
+    
+    let checkedReultsList =[]
+    this.share.getProtocols() ? checkedReultsList = this.share.getProtocols(): null;
     if (event.target.checked) {
-      this.checkedReultsList.push(device)
-      this.share.setProtocols(this.checkedReultsList)
+      checkedReultsList.push(device)
+      this.share.setProtocols(checkedReultsList)
     } else {
-      let index = this.checkedReultsList.findIndex(v => v.id === device.id);
-      this.checkedReultsList.splice(index, 1)
-      this.share.setProtocols(this.checkedReultsList)
+      let index = checkedReultsList.findIndex(v => v.id === device.id);
+      checkedReultsList.splice(index, 1)
+      this.share.setProtocols(checkedReultsList)
 
 
     }
+  }
+
+  is_checked(protocol_list, protocol) {
+    if (protocol_list){
+    return protocol_list.findIndex(x=>x.name==protocol.name)
+    }
+    return -1
+
+
   }
 
 }

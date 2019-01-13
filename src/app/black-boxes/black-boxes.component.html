@@ -7,17 +7,16 @@
     <div class="checkbox-div checkbox mb-1 boxes-bg-color ">
       <label class="group-text-color">
         <button class="btn-icon" (click)='groupToggle(i)'>
-          <i [ngClass]="isCollapsed[i] ? 'up arrow' : 'down arrow'">
+          <i [ngClass]="isCollapsed[i] ? 'up' : 'down'">
           </i></button>
-
-        <input type="checkbox" [checked]="isAllChildrenChecked(groups_checkboxes)" #groups_checkboxes (change)="groupCheckboxToggle($event,i);updateGroupResults($event,i)"
+        <input type="checkbox" [checked]="areAllChildrenChecked(i)" (change)="updateGroupResults($event,i)"
           name="groups" [value]="group.id"> {{group.name}}</label></div>
-
     <li>
       <ul *ngFor="let device of group.devices;let j=index" id="group.id" [ngbCollapse]="!isCollapsed[i]">
         <div class="checkbox mb-1">
           <label class="primary-text-color sub-list">
-<input type="checkbox" (change)="checkBoxUpdateReults($event,device,i)" [checked]="getStatus(groups_checkboxes)" name="devices" [value]="device.id">
+            <input type="checkbox" (change)="checkBoxUpdateReults($event,device,i)" [checked]="share.getDevices()[i].devices[j].active==1"
+              name="devices" [value]="device.id">
             {{device.name}}
 
           </label></div>
